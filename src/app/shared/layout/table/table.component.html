@@ -1,0 +1,33 @@
+<div id="table-wrapper">
+  <table>
+    <tr>
+      <ng-container *ngFor="let header of tableHeader">
+        <th>{{header.title}}</th>
+      </ng-container>
+      <th class="action">&nbsp;</th>
+    </tr>
+    <ng-container *ngIf="tableContent.length !== 0">
+      <ng-container *ngFor="let content of tableContent">
+        <tr>
+          <ng-container *ngFor="let header of tableHeader">
+            <td>
+              <ng-container [ngSwitch]="header.type">
+                <ng-container *ngSwitchCase="'image'"> <img [src]="content[header.cellTag]" height="30px"/> </ng-container>
+                <ng-container *ngSwitchCase="'date'">{{content[header.cellTag] | date: 'dd-MM-yyyy'}}</ng-container>
+                <ng-container *ngSwitchCase="'text'">{{content[header.cellTag]}}</ng-container>
+                <ng-container *ngSwitchDefault>{{content[header.cellTag]}}</ng-container>
+              </ng-container>
+            </td>
+          </ng-container>
+          <td class="action">
+            <app-table-action-menu (reload)="listReload.emit($event)" (edit)="editSelected($event, content)" [productId]="content[idCellName]"></app-table-action-menu>
+          </td>
+        </tr>
+      </ng-container>
+    </ng-container>
+  </table>
+  <ng-container *ngIf="tableContent.length === 0">
+    <p>No hay productos registrados.</p>
+  </ng-container>
+  <app-table-footer style="width: 100%;" [listSize]="tableContent.length"></app-table-footer>
+</div>

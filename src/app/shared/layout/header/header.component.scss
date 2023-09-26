@@ -1,0 +1,10 @@
+@import 'src/assets/styles/variables.scss';
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+  width: 100%;
+  background-color: $white;
+}

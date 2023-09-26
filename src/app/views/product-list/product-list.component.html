@@ -1,0 +1,9 @@
+
+<section id="list-wrapper">
+  <section id="actions-wrapper">
+    <input placeholder="Search..." (input)="onChange()" [(ngModel)]="searchString" />
+    <button (click)="addNewProduct()">Agregar</button>
+  </section>
+  <app-table [tableHeader]="tableHeader" [tableContent]="productList" [idCellName]="'id'" (listReload)="listProducts()" (editSelect)="editSelect($event)"></app-table>
+</section>
+

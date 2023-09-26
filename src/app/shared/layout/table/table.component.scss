@@ -1,0 +1,40 @@
+@import 'src/assets/styles/variables.scss';
+
+#table-wrapper {
+  background-color: $white;
+  min-width: 1280px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  table {
+    width: 100%;
+    tr {
+      th {
+        height: 60px;
+        font-size: $font-size-M;
+        &.action{
+          width: 30px;
+        }
+      }
+      td {
+        text-align: center;
+        margin: auto;
+        &.action{
+          width: 30px;
+        }
+      }
+    }
+  }
+
+  p{
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    font-size: $font-size-M;
+    margin: 0;
+    padding: 0;
+  }
+}
+

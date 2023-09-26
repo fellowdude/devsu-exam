@@ -1,0 +1,18 @@
+@import 'src/assets/styles/variables.scss';
+
+#table-footer {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $white;
+  div {
+    margin: 0 2em;
+  }
+
+  select {
+    padding: 5px;
+    border-radius: 5px;
+  }
+}

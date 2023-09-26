@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/styles/variables.scss';
+
+* {
+  font-family: "Prelo";
+}
+
+body{
+  background-color: $bg-color;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+.general-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
