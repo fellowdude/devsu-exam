@@ -18,8 +18,8 @@
               [ngClass]="{ 'is-invalid': f['id'].errors && f['id'].dirty }"
               [disabled]="editing"
             />
-            <span *ngIf="f['id'].pristine || f['id'].valid">&nbsp;</span>
-            <span *ngIf="f['id'].errors && f['id'].dirty || showIdError">ID no valido</span>
+            <span *ngIf="(f['id'].pristine || f['id'].valid) && !showIdError">&nbsp;</span>
+            <span *ngIf="(f['id'].errors && f['id'].dirty) || showIdError">ID no valido</span>
           </div>
           <div class="form-group general-center">
             <label>Nombre</label>
@@ -83,10 +83,10 @@
         </div>
         <div class="line-container spacer">
           <div class="form-group general-center">
-            <button (click)="productForm.reset()">Reiniciar</button>
+            <button id="reset" (click)="productForm.reset()">Reiniciar</button>
           </div>
           <div class="form-group general-center">
-            <button type="submit" [disabled]="productForm.invalid">Enviar</button>
+            <button id="submit" type="submit" [disabled]="productForm.invalid">Enviar</button>
           </div>
         </div>
       </form>

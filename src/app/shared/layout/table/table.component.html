@@ -12,7 +12,7 @@
           <ng-container *ngFor="let header of tableHeader">
             <td>
               <ng-container [ngSwitch]="header.type">
-                <ng-container *ngSwitchCase="'image'"> <img [src]="content[header.cellTag]" height="30px"/> </ng-container>
+                <ng-container *ngSwitchCase="'image'"> <img [src]="content[header.cellTag]"/> </ng-container>
                 <ng-container *ngSwitchCase="'date'">{{content[header.cellTag] | date: 'dd-MM-yyyy'}}</ng-container>
                 <ng-container *ngSwitchCase="'text'">{{content[header.cellTag]}}</ng-container>
                 <ng-container *ngSwitchDefault>{{content[header.cellTag]}}</ng-container>

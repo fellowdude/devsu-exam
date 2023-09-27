@@ -75,35 +75,39 @@ export class ProductFormComponent implements OnInit{
     if(this.productForm.valid){
       this.productService.validateId(this.productForm.get('id')?.value).subscribe({
         next: (response) => {
-          if(!this.productId){
-            this.productForm.get('date_revision')?.enable();
-            this.productService.addProduct(this.productForm.value).subscribe({
-              next: (response) => {
-                sessionStorage.removeItem('edit-product');
-                this.router.navigate(['products']);
-              },
-              error: (error) => {
-                console.log(error)
-              },
-              complete: () => {
-                this.productForm.reset();
-              }
-            })
+          if(response){
+            if(!this.productId){
+              this.productForm.get('date_revision')?.enable();
+              this.productService.addProduct(this.productForm.value).subscribe({
+                next: (response) => {
+                  sessionStorage.removeItem('edit-product');
+                  this.router.navigate(['products']);
+                },
+                error: (error) => {
+                  console.log(error)
+                },
+                complete: () => {
+                  this.productForm.reset();
+                }
+              })
+            }else{
+              this.productForm.get('id')?.enable();
+              this.productForm.get('date_revision')?.enable();
+              this.productService.editProduct(this.productForm.value).subscribe({
+                next: (response) => {
+                  sessionStorage.removeItem('edit-product');
+                  this.router.navigate(['products']);
+                },
+                error: (error) => {
+                  console.log(error)
+                },
+                complete: () => {
+                  this.productForm.reset();
+                }
+              })
+            }
           }else{
-            this.productForm.get('id')?.enable();
-            this.productForm.get('date_revision')?.enable();
-            this.productService.editProduct(this.productForm.value).subscribe({
-              next: (response) => {
-                sessionStorage.removeItem('edit-product');
-                this.router.navigate(['products']);
-              },
-              error: (error) => {
-                console.log(error)
-              },
-              complete: () => {
-                this.productForm.reset();
-              }
-            })
+            this.showIdError = true;
           }
         },
         error: (error) => {

@@ -10,19 +10,40 @@
   flex-direction: column;
   table {
     width: 100%;
+    border: none;
+    border-spacing: 0px;
     tr {
+      &:nth-child(1) {
+        background-color: #f7f7f7;
+        border: none;
+      }
       th {
         height: 60px;
         font-size: $font-size-M;
+        flex: 0 0 auto;
+        text-align: left;
         &.action{
           width: 30px;
         }
+        &:nth-child(1) {
+          padding-left: 1em;
+        }
       }
       td {
-        text-align: center;
+        height: 60px;
         margin: auto;
+        flex: 0 0 auto;
+        border-bottom: 1px solid lightgray;
         &.action{
           width: 30px;
+        }
+        img {
+          border-radius: 50%;
+          overflow: hidden;
+          object-fit: cover;
+          height: 30px;
+          width: 30px;
+          margin: 0 3em;
         }
       }
     }

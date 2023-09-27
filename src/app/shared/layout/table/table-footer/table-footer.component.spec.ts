@@ -20,4 +20,10 @@ describe('TableFooterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should change size', () => {
+    component.listSize = 3;
+    fixture.detectChanges();
+    expect(component.listSize).toBe(3);
+  });
 });

@@ -2,8 +2,8 @@
   <img src="./assets/images/dots.svg" #buttonMenu (click)="toogleMenu = !toogleMenu">
   <div id="action-menu-display" #menu *ngIf="toogleMenu">
     <ul>
-      <li (click)="sendToEdit()">Editar</li>
-      <li (click)="deleteItem()">Eliminar</li>
+      <li id="edit" (click)="sendToEdit()">Editar</li>
+      <li id="delete" (click)="deleteItem()">Eliminar</li>
     </ul>
   </div>
 </div>
